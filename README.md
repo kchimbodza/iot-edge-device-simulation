@@ -83,7 +83,7 @@ gateway with responses (10), end-to-end with the cloud (11), LED and pitch demo 
 | ⚠️ | Local temperature control is off | An on-device HVAC rule exists (`handleTempChangeOnDevice`), but it is switched off in the config; decisions are made by the gateway. |
 
 ## Technologies Used
-`Python` `MQTT` `TLS/SSL` `CoAP` `Docker` `Wireshark`
+`Python` `MQTT` `TLS/SSL` `CoAP` `Wireshark`
 
 ## Skills Demonstrated
 - IoT sensor data simulation and actuator control
