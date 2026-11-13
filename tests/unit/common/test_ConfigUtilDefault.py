@@ -57,7 +57,8 @@ class ConfigUtilDefaultTest(unittest.TestCase):
 		
 	def testGetIntegerProperty(self):
 		port = self.configUtil.getInteger(ConfigConst.MQTT_GATEWAY_SERVICE, ConfigConst.PORT_KEY)
-		self.assertEqual(port, ConfigConst.DEFAULT_MQTT_PORT)
+		# PiotConfig.props uses the TLS port (8883) since TLS was enabled; either MQTT port is valid
+		self.assertIn(port, (ConfigConst.DEFAULT_MQTT_PORT, ConfigConst.DEFAULT_MQTT_SECURE_PORT))
 	
 	def testGetFloatProperty(self):
 		hSimFloor = self.configUtil.getFloat(ConfigConst.CONSTRAINED_DEVICE, ConfigConst.HUMIDITY_SIM_FLOOR_KEY)

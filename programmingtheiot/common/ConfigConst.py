@@ -199,9 +199,10 @@ CDA_SYSTEM_PERF_MSG_RESOURCE          = PRODUCT_NAME + '/' + CONSTRAINED_DEVICE 
 # NOTE: You may need to update these paths if you change
 # the directory structure for python-components
 
-# NOTE: You may need to update these relative paths!!
-#DEFAULT_CONFIG_FILE_NAME = './config/PiotConfig.props'
-DEFAULT_CONFIG_FILE_NAME = '/home/kc/piot/cda-python-components/config/PiotConfig.props'
+# Resolved from this file's location, so it works from any working directory and on any machine
+import os as _os
+DEFAULT_CONFIG_FILE_NAME = _os.path.normpath(
+	_os.path.join(_os.path.dirname(__file__), '..', '..', 'config', 'PiotConfig.props'))
 DEFAULT_CRED_FILE_NAME   = './cred/PiotCred.props'
 
 PARENT_PATH = '../'

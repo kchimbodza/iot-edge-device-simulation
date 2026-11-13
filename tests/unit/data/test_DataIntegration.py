@@ -107,6 +107,8 @@ class DataIntegrationTest(unittest.TestCase):
 		
 		fileName = self.gdaDataPath + '/ActuatorData.dat'
 		fileRef  = Path(fileName)
+		if not fileRef.is_file():
+			self.skipTest("needs a file written by the Java gateway (GDA): " + fileName)
 		dataStr  = fileRef.read_text(encoding = 'utf-8')
 
 		dataObj  = self.dataUtil.jsonToActuatorData(dataStr)
@@ -120,6 +122,8 @@ class DataIntegrationTest(unittest.TestCase):
 		
 		fileName = self.gdaDataPath + '/SensorData.dat'
 		fileRef  = Path(fileName)
+		if not fileRef.is_file():
+			self.skipTest("needs a file written by the Java gateway (GDA): " + fileName)
 		dataStr  = fileRef.read_text(encoding = 'utf-8')
 
 		dataObj  = self.dataUtil.jsonToSensorData(dataStr)
@@ -133,6 +137,8 @@ class DataIntegrationTest(unittest.TestCase):
 		
 		fileName = self.gdaDataPath + '/SystemPerformanceData.dat'
 		fileRef  = Path(fileName)
+		if not fileRef.is_file():
+			self.skipTest("needs a file written by the Java gateway (GDA): " + fileName)
 		dataStr  = fileRef.read_text(encoding = 'utf-8')
 
 		dataObj  = self.dataUtil.jsonToSystemPerformanceData(dataStr)

@@ -14,6 +14,7 @@ import unittest
 import programmingtheiot.common.ConfigConst as ConfigConst
 
 from programmingtheiot.common.ConfigUtil import ConfigUtil
+from programmingtheiot.common.Singleton import Singleton
 
 class ConfigUtilCustomTest(unittest.TestCase):
 	"""
@@ -38,6 +39,11 @@ class ConfigUtilCustomTest(unittest.TestCase):
 		logging.info("Testing ConfigUtil class (custom file load)...")
 
 		self.configUtil = ConfigUtil(configFile = self.configFile)
+		
+	@classmethod
+	def tearDownClass(self):
+		# ConfigUtil is a Singleton: drop the test-config instance so later tests load the default config
+		Singleton._instances.pop(ConfigUtil, None)
 		
 	def setUp(self):
 		pass
