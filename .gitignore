@@ -5,3 +5,5 @@
 **/wsl-venv
 **/piot-venv
 .venv
+
+*.bak
